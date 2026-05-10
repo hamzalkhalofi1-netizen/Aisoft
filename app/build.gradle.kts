@@ -3,14 +3,6 @@ plugins {
     id("org.jetbrains.kotlin.android") version "1.9.0"
 }
 
-configurations.all {
-    resolutionStrategy.eachDependency {
-        if (requested.group == "org.jetbrains.kotlin") {
-            useVersion("1.9.0")
-        }
-    }
-}
-
 android {
     namespace = "com.example.yomuai"
     compileSdk = 34
@@ -58,7 +50,8 @@ android {
 }
 
 dependencies {
-
+    implementation(platform("org.jetbrains.kotlin:kotlin-bom:1.9.0"))
+    implementation("org.jetbrains.kotlin:kotlin-stdlib")
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
     implementation("androidx.activity:activity-compose:1.8.2")
