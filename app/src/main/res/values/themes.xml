@@ -1,4 +1,4 @@
 <resources>
     <!-- Base application theme. -->
-    <style name="Theme.YomuAI" parent="Theme.Material.Light.NoActionBar" />
+    <style name="Theme.YomuAI" parent="Theme.MaterialComponents.DayNight.NoActionBar" />
 </resources>
