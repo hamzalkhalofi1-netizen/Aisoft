@@ -1,4 +1,3 @@
-// Global version fix
 subprojects {
     project.configurations.all {
         resolutionStrategy.eachDependency {
