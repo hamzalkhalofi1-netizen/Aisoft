@@ -3,6 +3,14 @@ plugins {
     id("org.jetbrains.kotlin.android") version "1.9.0"
 }
 
+configurations.all {
+    resolutionStrategy.eachDependency {
+        if (requested.group == "org.jetbrains.kotlin") {
+            useVersion("1.9.0")
+        }
+    }
+}
+
 android {
     namespace = "com.example.yomuai"
     compileSdk = 34
@@ -46,13 +54,6 @@ android {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
-    }
-}
-
-configurations.all {
-    resolutionStrategy {
-        force("org.jetbrains.kotlin:kotlin-stdlib:1.9.0")
-        force("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.9.0")
     }
 }
 
