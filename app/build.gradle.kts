@@ -3,7 +3,6 @@ plugins {
     id("org.jetbrains.kotlin.android") version "1.9.0"
 }
 
-// هاد الجزء كيفرض نسخة وحدة باش ميبقاش الصداع بين المكتبات
 subprojects {
     project.configurations.all {
         resolutionStrategy.eachDependency {
@@ -41,7 +40,6 @@ android {
         }
     }
 
-    // ضروري يكون Java 17 باش يخدم ليك فـ GitHub Actions
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
@@ -64,27 +62,20 @@ android {
 }
 
 dependencies {
+    // المكتبات الأساسية والترجمة
     implementation("org.jsoup:jsoup:1.16.1")
     implementation("io.coil-kt:coil-compose:2.4.0")
+    
+    // هاد السطر هو اللي غيصلح أخطاء LibraryBooks و Translate
+    implementation("androidx.compose.material:material-icons-extended:1.5.4")
+
     implementation(platform("org.jetbrains.kotlin:kotlin-bom:1.9.0"))
     implementation("org.jetbrains.kotlin:kotlin-stdlib")
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.activity:activity-compose:1.8.2")
-    
-    // Compose
     implementation(platform("androidx.compose:compose-bom:2023.08.00"))
     implementation("androidx.compose.ui:ui")
     implementation("androidx.compose.ui:ui-graphics")
     implementation("androidx.compose.ui:ui-tooling-preview")
     implementation("androidx.compose.material3:material3")
-    
-    // Material & Lifecycle
-    implementation("com.google.android.material:material:1.9.0")
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
-    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.2")
-
-    // Testing
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.5")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
 }
