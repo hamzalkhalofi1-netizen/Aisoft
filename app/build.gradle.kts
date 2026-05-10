@@ -1,3 +1,7 @@
+plugins {
+    id("com.android.application") version "8.2.0"
+    id("org.jetbrains.kotlin.android") version "1.9.0"
+}
 subprojects {
     project.configurations.all {
         resolutionStrategy.eachDependency {
@@ -6,11 +10,6 @@ subprojects {
             }
         }
     }
-}
-
-plugins {
-    id("com.android.application") version "8.2.0"
-    id("org.jetbrains.kotlin.android") version "1.9.0"
 }
 
 android {
@@ -102,3 +101,8 @@ dependencies {
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
 }
+    // زيد هاد السطور باش تسد الملف
+    testImplementation("junit:junit:4.13.2")
+    androidTestImplementation("androidx.test.ext:junit:1.1.5")
+    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+} // هاد القوس ضروري باش تسد الـ dependencies
